@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lyrics-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: lyrics-app
+  template:
+    metadata:
+      labels:
+        app: lyrics-app
+    spec:
+      containers:
+      - name: lyrics-app
+        image: JasminaTM/lyrics-app:latest
+        ports:
+        - containerPort: 5000
